@@ -8,7 +8,8 @@
 
 ###### Data Structures:
   - Binary Tree (JS)
-  - Singly Linked List (JS)
+  - Singly Linked List (JS, Python)
 
 ###### Algorithmic Tasks:
-  - Paired Brackets String Validation Task
+  - Paired Brackets String Validation Task (JS, Python)
+

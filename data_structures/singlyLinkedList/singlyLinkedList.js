@@ -52,12 +52,29 @@
 
   getLastNode() {
     if (!this.length && !this._head) return null;
-    return this.getNodeByPosition(this.length - 1)
+
+    let currentNode = this._head;
+    while (currentNode.next) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
   }
 
   removeLastNode() {
     if (!this.length && !this._head) return null;
-    return this.removeNodeByPosition(this.length - 1)
+
+    let currentNode = this._head;
+    let prevNode = null;
+    while (currentNode.next) {
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+
+      if (!currentNode.next) {
+        prevNode.next = null;
+        this.length--;
+        return currentNode;
+      }
+    }
   }
 
   getNodeByPosition(position) {
