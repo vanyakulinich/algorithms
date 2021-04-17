@@ -1,6 +1,14 @@
 /**
+ * Singly Linked List data strucuture implementation:
+ *
+ * list's elements(nodes) are coupled with each other in one direction => each node has the pointer to next one, but not to previous.
+ * last element's pointer to next node equals to null
+ * nodes can be added/deleted/accessed both from _head/tail and by its position in the list.
+ */
+
+/**
  * List Node class
- * stored the data and pointer to next element
+ * stores the data and pointer to next element
  */
  class ListNode {
   constructor(data = null, next = null) {
@@ -44,29 +52,12 @@
 
   getLastNode() {
     if (!this.length && !this._head) return null;
-
-    let currentNode = this._head;
-    while (currentNode.next) {
-      currentNode = currentNode.next;
-    }
-    return currentNode;
+    return this.getNodeByPosition(this.length - 1)
   }
 
   removeLastNode() {
     if (!this.length && !this._head) return null;
-
-    let currentNode = this._head;
-    let prevNode = null;
-    while (currentNode.next) {
-      prevNode = currentNode;
-      currentNode = currentNode.next;
-
-      if (!currentNode.next) {
-        prevNode.next = null;
-        this.length--;
-        return currentNode;
-      }
-    }
+    return this.removeNodeByPosition(this.length - 1)
   }
 
   getNodeByPosition(position) {
